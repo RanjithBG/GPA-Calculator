@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPA Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 500px; margin: 40px auto; }
+        input { margin: 5px 0; }
+        button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2>GPA Calculator</h2>
+    <form method="POST">
+        {% for i in range(1, 6) %}
+            <div>
+                <input name="credit" type="number" placeholder="Credits for Subject {{i}}" required>
+                <input name="grade" placeholder="Grade (S, A, B...)" required>
+            </div>
+        {% endfor %}
+        <button type="submit">Calculate GPA</button>
+    </form>
+
+    {% if gpa is not none %}
+        <h3>Your GPA is: {{ gpa }}</h3>
+    {% endif %}
+</body>
+</html>
